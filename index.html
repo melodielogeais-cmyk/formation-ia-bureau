@@ -76,27 +76,19 @@ button{font-family:inherit}
 .win .content ul{padding-left:20px;margin:12px 0}
 .win .content .tagline{display:inline-block;background:#f49ac11f;color:var(--blue-d);font-weight:700;font-size:13px;padding:4px 10px;border-radius:999px;margin-bottom:12px}
 
-/* dock (façon macOS) */
-.dock{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:90;display:flex;align-items:flex-end;gap:6px;height:74px;padding:9px 10px;background:#ffffff8c;backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6);border:1px solid #ffffffcc;border-radius:24px;box-shadow:0 0 0 .5px #1d1e2626,0 18px 50px #1d1e2633}
-.dock-item{position:relative;width:54px;height:54px;flex:none;padding:0;border:0;background:none;cursor:pointer;display:flex;align-items:flex-end;justify-content:center;transition:width .18s ease,height .18s ease;text-decoration:none}
-.dock-item .tile,.dock-item .logo-item{display:inline-flex;flex-direction:column;align-items:center;gap:10px;flex:none}
+/* dock */
+.dock{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:90;display:flex;gap:8px;align-items:flex-end;padding:8px;background:#ffffffb3;backdrop-filter:blur(18px);border:1px solid #ffffff;border-radius:22px;box-shadow:0 10px 40px #1d1e2626}
+.dock a,.dock button{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;text-decoration:none;font-weight:800;font-size:15px;color:#fff;border:0;cursor:pointer;transition:transform .2s,width .2s,height .2s;position:relative}
+.dock a:hover,.dock button:hover{transform:translateY(-10px) scale(1.18)}
+.dock .tip{position:absolute;bottom:68px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;font-size:12px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s}
+.dock a:hover .tip,.dock button:hover .tip{opacity:1}
+.dock button{padding:0;background:none}
+.dock button .logo-tile{width:100% !important;height:100% !important}
+.dock button .logo-tile svg{width:54%;height:54%}
+.dock .sep{width:1px;height:40px;background:var(--line-2);margin:0 4px;align-self:center}
+.logo-item{display:inline-flex;flex-direction:column;align-items:center;gap:10px;flex:none}
 .logo-name{font-size:13px;font-weight:600;color:#8a909c;letter-spacing:.01em;white-space:nowrap}
-.logo-tile{width:100% !important;height:100% !important}
-.dock-item .logo-tile svg{width:52%;height:52%}
-.tile{display:grid;place-items:center;border-radius:23%;color:#fff;font-weight:800;font-size:18px;box-shadow:inset 0 1px 0 #ffffff59,inset 0 -2px 6px #00000026,0 6px 16px #0000002e;overflow:hidden;position:relative}
 .logo-tile{display:inline-grid;place-items:center;flex:none;border-radius:23%;box-shadow:inset 0 1px 0 #ffffff59,inset 0 -2px 6px #00000026,0 6px 16px #0000002e;background-image:linear-gradient(180deg,#ffffff33,#ffffff00 55%)!important}
-.tile.cal{background:#fff;color:var(--ink);display:flex;flex-direction:column;justify-content:flex-start;padding-top:4px}
-.tile.cal small{font-size:9px;font-weight:700;color:#ff3b30;text-transform:uppercase;letter-spacing:.04em}
-.tile.cal b{font-size:24px;font-weight:500;line-height:1;margin-top:1px}
-.tile.meteo{background:linear-gradient(180deg,#7cc4ff,#3a8dff);font-size:17px;flex-direction:column;display:flex;justify-content:center;line-height:1.05}
-.tile.meteo i{font-style:normal;font-size:14px}
-.dock-item .tip{position:absolute;bottom:calc(100% + 14px);left:50%;transform:translateX(-50%);background:#f6f6f8ee;color:var(--ink);border:1px solid #1d1e261a;font-size:12.5px;font-weight:600;padding:5px 11px;border-radius:7px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .12s;box-shadow:0 4px 14px #1d1e2626}
-.dock-item:hover .tip,.dock-item:focus-visible .tip{opacity:1}
-.dock-item:focus-visible{outline:2px solid var(--blue-d);outline-offset:4px;border-radius:14px}
-.dock-item.running::after{content:"";position:absolute;bottom:-7px;left:50%;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:#1d1e26b3}
-.dock-item.bounce{animation:bounce .6s ease 2}
-@keyframes bounce{40%{transform:translateY(-14px)}}
-.dock .sep{width:1px;align-self:stretch;margin:4px 4px;background:#1d1e2633;flex:none}
 .press .row .logo-tile{width:68px;height:68px}
 .press .row .logo-tile svg{width:36px;height:36px}
 
@@ -160,7 +152,7 @@ footer{max-width:1360px;margin:0 auto;padding:80px 32px 140px;display:flex;flex-
   .press{margin:0 -16px}
   .menubar .hide-m{display:none}
   .win{left:16px !important;right:16px;width:auto}
-  .dock{gap:3px;padding:7px;height:60px;max-width:calc(100vw - 16px);overflow-x:auto}.dock-item{width:42px;height:42px}.dock .ai-extra{display:none}
+  .dock a,.dock button{width:40px;height:40px}.dock{gap:5px;padding:6px}.dock .m-hide{display:none}
   footer{padding:60px 16px 120px}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
@@ -252,7 +244,7 @@ footer{max-width:1360px;margin:0 auto;padding:80px 32px 140px;display:flex;flex-
   <div class="sec-head reveal"><span class="num">Applications</span><h2>Tarifs</h2></div>
   <div class="apps">
     <div class="app reveal"><div class="ico" style="background:#c2367a">1h</div><h3>Séance 1 h · 1 ou 2 pers.</h3><div class="amt">99 €</div><p>Pour découvrir l'IA sur vos outils et repartir avec vos premiers prompts.</p></div>
-    <div class="app hot reveal"><div class="ico" style="background:#8f6fe8">2h</div><h3>Séance 2 h · Recommandée</h3><div class="amt">198 €</div><p>1 ou 2 personnes. Le temps de construire une automatisation qui tourne à la fin de la séance.</p></div>
+    <div class="app hot reveal"><div class="ico" style="background:#8f6fe8">2h</div><h3>Séance 2 h · Recommandée</h3><div class="amt">150 €</div><p>1 ou 2 personnes. Le temps de construire une automatisation qui tourne à la fin de la séance.</p></div>
     <div class="app reveal"><div class="ico" style="background:#1f9e68">15'</div><h3>Appel diagnostic</h3><div class="amt">Offert</div><p>On identifie ensemble les tâches à automatiser en priorité.</p></div>
   </div>
   <p class="reveal" style="margin-top:24px;color:var(--mute);font-weight:600">Même prix seul·e ou à deux · Appel diagnostic de 15 min offert · TVA non applicable, art. 293 B du CGI</p>
@@ -284,7 +276,13 @@ footer{max-width:1360px;margin:0 auto;padding:80px 32px 140px;display:flex;flex-
 
 <footer><span>© 2026 Mélodie Logeais · Formatrice IA · Bordeaux</span><span><a href="#">Mentions légales</a> · <a href="#">LinkedIn</a></span></footer>
 
-<nav class="dock" id="dock" aria-label="Dock"></nav>
+<nav class="dock" id="dock" aria-label="Outils IA que je maîtrise">
+  <span id="dockApps" style="display:contents"></span>
+  <span class="sep" aria-hidden="true"></span>
+  <a href="#contact" style="background:var(--ink)">✉<span class="tip">Contact</span></a>
+  <a href="https://calendly.com/[TON-LIEN]" target="_blank" rel="noopener" style="background:#c2367a">Rdv<span class="tip">Réserver</span></a>
+  <a href="#" style="background:#0a66c2">in<span class="tip">LinkedIn</span></a>
+</nav>
 
 <script src="logos.js"></script>
 <script>
@@ -338,37 +336,10 @@ document.getElementById('toolsRow').innerHTML=[...tools,...tools].map(k=>logoIte
 // Fenêtres des outils IA
 const AI=['openai','claude','googlegemini','perplexity','cursor','midjourney','notion','canva','make','zapier'];
 AI.forEach(k=>{const l=LOGOS[k];W['ai-'+k]={t:l.name,h:`<div style="display:flex;gap:16px;align-items:center;margin-bottom:12px">${logoTile(k,56)}<div><span class="tagline" style="margin:0">Outil IA</span><h3 style="margin:4px 0 0">${l.name}</h3></div></div><p>${l.text}</p><p>Pendant la séance, je vous apprends à l'utiliser sur vos vraies tâches, directement sur votre ordinateur.</p><a class="btn" href="#contact">Réserver une séance</a>`};});
+document.getElementById('dockApps').outerHTML=AI.map((k,i)=>`<button data-open="ai-${k}" class="${i>4?'m-hide':''}" aria-label="${LOGOS[k].name}">${logoTile(k,52)}<span class="tip">${LOGOS[k].name}</span></button>`).join('');
+document.querySelectorAll('#dock [data-open]').forEach(b=>b.addEventListener('click',()=>{if(scrollY>200)scrollTo({top:0,behavior:'smooth'});openWin(b.dataset.open);}));
 
-// Dock façon macOS
-const folderTile=(c1,c2,label)=>`<span class="tile" style="background:linear-gradient(180deg,${c1},${c2})"><svg viewBox="0 0 64 52" width="60%" aria-hidden="true"><path d="M2 8a6 6 0 0 1 6-6h16l6 6h26a6 6 0 0 1 6 6v30a6 6 0 0 1-6 6H8a6 6 0 0 1-6-6z" fill="#ffffffcc"/><path d="M2 16h60v28a6 6 0 0 1-6 6H8a6 6 0 0 1-6-6z" fill="#fff"/></svg></span>`;
-const now=new Date();
-const dockItems=[
-  {k:'about',label:'Mélodie',html:`<span class="tile" style="background:linear-gradient(135deg,#ffb3d1,#b9a3ff)">M</span>`},
-  {k:'marketing',label:'Marketing',html:folderTile('#cdbbff','#8f6fe8')},
-  {k:'admin',label:'Administratif',html:folderTile('#ffd98a','#e0a100')},
-  {k:'commercial',label:'Commercial',html:folderTile('#a6ecc9','#1f9e68')},
-  {k:'dev',label:'Développement',html:folderTile('#ffb3d1','#c2367a')},
-  'sep',
-  ...AI.map((k,i)=>({k:'ai-'+k,label:LOGOS[k].name,html:logoTile(k,54),cls:i>3?'ai-extra':''})),
-  'sep',
-  {k:'book',label:'Agenda · Réserver',html:`<span class="tile cal"><small>${now.toLocaleDateString('fr-FR',{weekday:'short'}).replace('.','')}</small><b>${now.getDate()}</b></span>`},
-  {href:'#',label:'Météo · Bordeaux',html:`<span class="tile meteo"><i data-weather="icon">☁</i><span data-weather="temp">--°</span></span>`,meteo:true},
-  {href:'#contact',label:'Mail',html:logoTile('gmail',54)},
-  {href:'#',label:'LinkedIn',html:logoTile('linkedin',54)}
-];
-const dock=document.getElementById('dock');
-dock.innerHTML=dockItems.map(it=>it==='sep'?'<span class="sep" aria-hidden="true"></span>':
-  `<${it.k?'button':'a'} class="dock-item ${it.cls||''}" ${it.k?`data-open="${it.k}"`:`href="${it.href}"`} aria-label="${it.label}">${it.html}<span class="tip">${it.label}</span></${it.k?'button':'a'}>`).join('');
-dock.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>{b.classList.remove('bounce');void b.offsetWidth;b.classList.add('bounce');if(scrollY>200)scrollTo({top:0,behavior:'smooth'});openWin(b.dataset.open);}));
-// Effet de loupe
-const items=[...dock.querySelectorAll('.dock-item')],BASE=()=>innerWidth>960?54:42,MAX=1.7,RANGE=150;
-const reset=()=>items.forEach(el=>{el.style.width=el.style.height=BASE()+'px';});
-if(matchMedia('(hover:hover)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
-  dock.addEventListener('mousemove',e=>items.forEach(el=>{const r=el.getBoundingClientRect(),d=Math.abs(e.clientX-(r.left+r.width/2));const sc=1+(MAX-1)*Math.max(0,1-d/RANGE)**1.6;el.style.width=el.style.height=BASE()*sc+'px';}));
-  dock.addEventListener('mouseleave',reset);
-}
-// Point sous les apps ouvertes
-new MutationObserver(()=>items.forEach(el=>el.classList.toggle('running',!!(el.dataset.open&&open[el.dataset.open])))).observe(desk,{childList:true});
+
 
 // Curseur clignotant + reveal
 setInterval(()=>{const c=document.getElementById('caret');c.style.opacity=c.style.opacity==='0'?'1':'0';},530);
